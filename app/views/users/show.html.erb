@@ -1,0 +1,20 @@
+
+<p id="notice">
+  <%= notice %>
+</p>
+
+
+<%= render "books/list", book: @book, user: @user %>
+
+<h1>Books</h1>
+<h4>Title</h4>
+<h4>Opinion</h4>
+
+<% @books.each do |book| %>
+<%= link_to user_path(@user.id) do %>
+<%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format:"jpeg" %>
+<% end %>
+<%= link_to book.title, book_path(book.id) %>
+<%= book.body %>
+
+<% end %>

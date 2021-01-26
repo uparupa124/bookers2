@@ -1,0 +1,32 @@
+<h1>User info</h1>
+
+<%= attachment_image_tag user, :profile_image, :fill, 100, 100, format:"jpeg" %>
+<table>
+  <tbody>
+    <tr>
+      <th>
+        name
+      </th>
+      <th>
+        <%= user.name %>
+      </th>
+    </tr>
+    
+          <tr>
+          <th>introduction</th>
+          <th><%= user.introduction %></th>
+          </tr>
+    
+  </tbody>
+</table>
+
+<%= link_to "プロフィール編集", edit_user_path(user) %>
+
+<%= form_with model: book, local:true do |f| %>
+<h1>New Book</h1>
+ <h4>Title</h4>
+    <%= f.text_field :title %>
+   <h4>Opinion</h4>
+    <%= f.text_area :body %>
+    <%= f.submit "Create Book" %>
+<% end %>
