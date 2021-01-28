@@ -1,16 +1,31 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+       <%= render "books/list", book: @book, user: @user %>
+    </div>
+    
+    <div class="col-md-8 offset-md-1">
+      
+      <h1>Book detail</h1>
+    <table class="table">
+     <tbody>
+       <tr>
+         <td class="text-center">
+           <%= link_to user_path(@books.user.id) do %>
+           <%= attachment_image_tag @books.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:"100x100" %>
+           <%= @books.user.name %>
+           <% end %>
+         </td>
+          <td class="text-center"><%= @books.title %></td>
+            <td class="text-center"><%= @books.body %></td>
 
-<%= render "books/list", book: @book, user: @user %>
-
-<h1>Book detail</h1>
-<%= link_to user_path(@books.user.id) do %>
-<%= attachment_image_tag @books.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
-<%= @books.user.name %>
-<% end %>
-
-<%= @books.title %>
-<%= @books.body %>
-
-<% if @user.id == current_user.id %>
-<%= link_to "Edit", edit_book_path %>
-<%= link_to "Destroy", book_path(@books), method: :delete, "data-confirm"=> "本当に削除しますか" %>
-<% end %>
+   <% if @user.id == current_user.id %>
+              <td class="text-center"><button type:"button", class="btn btn-info"><%= link_to "Edit", edit_book_path, class: "text-white" %></button></td>
+              <td class="text-center"><button type:"button", class="btn btn-danger"><%= link_to "Destroy", book_path(@books), method: :delete, "data-confirm"=> "本当に削除しますか", class: "text-white" %></button></td>
+   <% end %>
+       </tr>
+      </tbody>
+    </table> 
+    </div>
+   </div>
+  </div>
