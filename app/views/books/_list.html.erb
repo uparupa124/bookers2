@@ -20,7 +20,7 @@
   </tbody>
 </table>
 
-<i class="fas fa-user-cog"></i><%= link_to "プロフィール編集", edit_user_path(@user.id) %>
+<a class="btn btn-outline-secondary btn-block fas fa-user-cog edit_user_17327" href= "/users/<%= user.id %>/edit"></a>
 
 <%= form_with model: book, local:true do |f| %>
 <h1>New book</h1>
