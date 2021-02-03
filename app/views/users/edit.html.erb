@@ -4,25 +4,28 @@
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this User from being saved:</h2>
 
       <ul>
-        <% @user.errors.full_messages.each do |message| %>
+          <% @user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
   <%# ここまでエラーメッセージ %>
+<div class="container">
+  <div class="row"> 
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <%= form_with model: @user, local:true do |f| %>
+        <h1>User info</h1>
+         <h4>Name</h4>
+        <%= f.text_field :name %>
 
-<div class="m-auto">
-<%= form_with model: @user, local:true do |f| %>
-  <h1>User info</h1>
-  <h4>Name</h4>
-<%= f.text_field :name %>
+          <h4>Image</h4>
+        <%= f.attachment_field :profile_image %>
 
-  <h4>Image</h4>
-<%= f.attachment_field :profile_image %>
-
-<h4>Introduction</h4>
-  <%= f.text_area :introduction %>
-  <br><input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User"></br>
-<% end %>
-</div>
+           <h4>Introduction</h4>
+        <%= f.text_area :introduction %>
+             <br><input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User"></br>
+      <% end %>
+    </div>
+  </div>
+</div

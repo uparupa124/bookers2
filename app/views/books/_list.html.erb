@@ -1,32 +1,32 @@
 <h1>User info</h1>
 
 <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-<table>
-  <tbody>
+ <table>
+   <tbody>
     <tr class="border-top">
-      <th>
+      <td>
         name
-      </th>
-      <th>
-        <%= user.name %>
-      </th>
+      </td>
+        <td>
+          <%= user.name %>
+        </td>
     </tr>
     
           <tr class="border-top">
-          <th>introduction</th>
-          <th><%= user.introduction %></th>
+            <td>introduction</td>
+            <td><%= user.introduction %></td>
           </tr>
     
-  </tbody>
-</table>
+   </tbody>
+ </table>
 
-<a class="btn btn-outline-secondary btn-block fas fa-user-cog edit_user_17327" href= "/users/<%= user.id %>/edit"></a>
+   <a class="btn btn-outline-secondary btn-block fas fa-user-cog edit_user_17327" href= "/users/<%= user.id %>/edit"></a>
 
-<%= form_with model: book, local:true do |f| %>
-<h1>New book</h1>
- <h4>Title</h4>
-    <%= f.text_field :title %>
-   <h4>Opinion</h4>
-    <%= f.text_area :body %>
-    <br><input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book"></br>
-<% end %>
+      <%= form_with model: book, local:true do |f| %>
+       <h1>New book</h1>
+         <h4>Title</h4>
+        <%= f.text_field :title %>
+         <h4>Opinion</h4>
+        <%= f.text_area :body %>
+          <br><input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book"></br>
+      <% end %>

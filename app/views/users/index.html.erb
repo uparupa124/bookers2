@@ -4,26 +4,25 @@
        <%= render "books/list", book: @book, user: @user %>
     </div>
 
-    <div class="col-md-8 offset-md-1">
-<h1>Users</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th><h4 class="text-center">image</h4></th>
-        <th><h4 class="text-center">name</h4></th>
-         <th></th>
-    </tr>
-  </thead>
- <tbody>
-   
-     <% @users.each do |user| %>
-    <tr class="border-top">
-        <td class="text-center"><%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:"50x50" %></td>
-         <td class="text-center"><%= user.name %></td>
-          <td class="text-center"><%= link_to "Show", user_path(user.id) %></td>
-    </tr>
-     <% end %>
-    
-    </div>
-   </div>
+      <div class="col-md-8 offset-md-1">
+        <h1>Users</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th><h4 class="text-center">image</h4></th>
+                  <th><h4 class="text-center">name</h4></th>
+                    <th></th>
+              </tr>
+            </thead>
+            
+              <tbody>
+                <% @users.each do |user| %>
+                   <tr class="border-top">
+                     <td class="text-center"><%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:"50x50" %></td>
+                       <td class="text-center"><%= user.name %></td>
+                         <td class="text-center"><%= link_to "Show", user_path(user.id) %></td>
+                   </tr>
+                <% end %>
+      </div>
   </div>
+</div>
