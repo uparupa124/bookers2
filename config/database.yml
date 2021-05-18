@@ -21,8 +21,6 @@ test:
   database: db/test.sqlite3
 
 production:
-  # <<: *default
-  # database: db/production.sqlite3
   <<: *default
   database: <%= ENV['DB_DATABASE'] %>
   adapter: mysql2
@@ -32,3 +30,4 @@ production:
   host: <%= ENV['DB_HOST'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
